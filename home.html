@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="icon" href="./images/logo.jpg" type="image/jpg">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <script src="js/image-puzzle.js"></script>
+</head>
+
+<body>
+    <div id="collage">
+        <h2>Keep your room clean😊 and you fall in ❤️ with your room</h2>
+        <hr />
+        <div id="playPanel" style="padding:5px;display:none;">
+            <h3 id="imgTitle"></h3>
+            <hr />
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Moves:</div>
+                        <div id="stepCount" class="stepCount">0</div>
+                    </div>
+                    <div id="timeBox">
+                        Time Taken: <span id="timerPanel"></span> secs
+                    </div>
+
+                    <img id="actualImage" />
+                    
+                   
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" onchange="imagePuzzle.startGame(images, this.value);"
+                        /> <label for="easy">Easy</label>
+                        <input type="radio" name="level" id="medium" value="4" onchange="imagePuzzle.startGame(images, this.value);" /><label for="medium">Medium</label>
+                        <input type="radio" name="level" id="hard" value="5" onchange="imagePuzzle.startGame(images, this.value);" /><label for="hard">Hard</label>
+                    </p>
+                    <div>
+                        <button id="newPhoto" type="button" class="btn" onclick="restart();">Change picture</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #6b96cf; text-align: center; ">
+                <h1 style="text-align:center">🥳🥳🥳🥳🥳</h1>
+                Congratulations!! <br /> Mission accomplished.
+                <br /> Steps: <span id="stepCount" class="stepCount">0</span> steps.
+                <br /> Time Taken: <span class="timeCount">0</span> seconds<br /> 
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play Again</button>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            var images = [
+                { src: 'images/start_with_this.jpg', title: 'Starting organizing your stuff like this one' },
+                { src: 'images/mo.jpg', title: 'Take a break and stand still like Mona ' },
+                { src: 'images/how_to_clean_your_room_1024x1024.jpg', title: 'Do not give up, it is rewarding and should clean your place' },
+                { src: 'images/clean1.jpg', title: 'If you keep being like this how are you going to handle a place like this😂' },
+                { src: 'images/unclean.jpg', title: 'Tell me, that your room was not like this at least once😂' },
+                { src: 'images/will.jpg', title: 'Look at this clean table. Will be like, "Look at my room people" ' },
+                { src: 'images/clean-dorm-room.jpg', title: 'Well, we are getting back to college, we should all make our room as clean as this one' },
+                { src: 'images/not.jpg', title: 'Typical hackers room, you better keep it clean' }
+                
+            ];
+
+            window.onload = function () {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            };
+            function restart() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            }
+            
+            
+        </script>
+    </div>
+</body>
+</html>
