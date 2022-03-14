@@ -19,5 +19,7 @@ I learned new techniques in JS and CSS.
 ## What's next for Clean Puzzle🔭🚀
 I want to add scores functionality and also to make it shareable to different social media platforms.
 
+Demo: http://puzzle.github.io/
+
 
 
